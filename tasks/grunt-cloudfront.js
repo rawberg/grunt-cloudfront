@@ -26,8 +26,8 @@ module.exports = function(grunt) {
       creds = new AWS.SharedIniFileCredentials({profile: options.awsProfile});
     }else {
       creds = {
-        accessKeyId: (process.env.AWS_ACCESS_KEY_ID || options.credentials.accessKeyId),
-        secretAccessKey: (process.env.AWS_SECRET_ACCESS_KEY || options.credentials.secretAccessKey)
+        accessKeyId: (process.env.AWS_ACCESS_KEY_ID || process.env.bamboo_AWS_ACCESS_KEY_ID || options.credentials.accessKeyId),
+        secretAccessKey: (process.env.AWS_SECRET_ACCESS_KEY || process.env.bamboo_AWS_SECRET_ACCESS_KEY || options.credentials.secretAccessKey)
       };
     }
 
